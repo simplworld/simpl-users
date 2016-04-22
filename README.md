@@ -1,11 +1,15 @@
-Wharton simpl_users app
-=======================
+# Wharton simpl_users app
 
 A reusable application to define SIMPL Users
 
-Running the tests
------------------
+## Running the tests
 
 To run the tests issue the command:
 
-  py.test --nomigrations
+```bash
+$ py.test --nomigrations
+```
+
+## Model Schema
+
+![](docs/models.png)
