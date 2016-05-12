@@ -28,6 +28,7 @@ class UserViewSet(CommonViewSet):
         'username',
         'subscriber_code',
     )
+    lookup_field = 'username'
     ordering_fields = ()
 
     def create(self, request):
@@ -36,11 +37,11 @@ class UserViewSet(CommonViewSet):
         """
         return super(UserViewSet, self).create(request)
 
-    def destroy(self, request, pk=None):
+    def destroy(self, request, username=None):
         """
         Delete an User
         """
-        return super(UserViewSet, self).destroy(request, pk=pk)
+        return super(UserViewSet, self).destroy(request, username=username)
 
     def list(self, request):
         """
@@ -80,20 +81,20 @@ class UserViewSet(CommonViewSet):
         """
         return super(UserViewSet, self).list(request)
 
-    def partial_update(self, request, pk=None):
+    def partial_update(self, request, username=None):
         """
         Update an existing User
         """
-        return super(UserViewSet, self).partial_update(request, pk=pk)
+        return super(UserViewSet, self).partial_update(request, username=username)
 
-    def retrieve(self, request, pk=None):
+    def retrieve(self, request, username=None):
         """
         Find an User by ID
         """
-        return super(UserViewSet, self).retrieve(request, pk=pk)
+        return super(UserViewSet, self).retrieve(request, username=username)
 
-    def update(self, request, pk=None):
+    def update(self, request, username=None):
         """
         Update an existing User
         """
-        return super(UserViewSet, self).update(request, pk=pk)
+        return super(UserViewSet, self).update(request, username=username)
