@@ -54,7 +54,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'simpl_users.tests.test_urls'
+ROOT_URLCONF = 'simpl_users.tests.urls'
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
