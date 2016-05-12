@@ -9,7 +9,7 @@ class UserQuerySet(models.QuerySet):
         return self.filter(faculty=True)
 
     def students(self):
-        return self.filter(faculty=False)
+        return self.filter(student=True)
 
 
 class UserManager(UserManager):

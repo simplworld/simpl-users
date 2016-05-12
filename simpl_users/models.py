@@ -19,6 +19,7 @@ class User(AbstractUser):
     # These are for "GIST Python Django" Compatability
     subscriber_code = models.CharField('Subscriber Code', max_length=255, blank=True)
     faculty = models.BooleanField(default=False, db_index=True)
+    student = models.BooleanField(default=False, db_index=True)
 
     objects = UserManager()
 

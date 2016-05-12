@@ -16,3 +16,7 @@ class UserFactory(factory.DjangoModelFactory):
 
 class FacultyFactory(UserFactory):
     faculty = True
+
+
+class StudentFactory(UserFactory):
+    student = True
