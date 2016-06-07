@@ -89,7 +89,7 @@ class UserViewSet(CommonViewSet):
 
     def retrieve(self, request, username=None):
         """
-        Find an User by ID
+        Find an User by username
         """
         return super(UserViewSet, self).retrieve(request, username=username)
 
