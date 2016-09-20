@@ -31,11 +31,17 @@ class UserViewSet(CommonViewSet):
     lookup_field = 'username'
     ordering_fields = ()
 
-    def create(self, request):
-        """
-        Add a new User
-        """
-        return super(UserViewSet, self).create(request)
+    #def create(self, request):
+    #    """
+    #    Add a new User
+    #    """
+    #    validated_user = super(UserViewSet, self).create(request)
+    #    from IPython import embed; embed()
+    #    if request.data.get('password', False):
+    #        validated_user.set_password(request.data['password'])
+    #        validated_user.save()
+#
+#        return validated_user
 
     def destroy(self, request, username=None):
         """
