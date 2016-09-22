@@ -19,7 +19,6 @@ class UserViewSet(CommonViewSet):
     """ User resource. """
 
     queryset = models.User.objects.all()
-    serializer_class = serializers.UserSerializer
     filter_fields = (
         'canvas_id',
         'is_active',
@@ -30,6 +29,13 @@ class UserViewSet(CommonViewSet):
     )
     lookup_field = 'username'
     ordering_fields = ()
+
+    def get_serializer(self, *args, **kwargs):
+        # Only allow admin users to update passwords
+        if self.request.user.is_staff:
+            return serializers.UserUpdateSerializer(*args, **kwargs)
+        else:
+            return serializers.UserSerializer(*args, **kwargs)
 
     def destroy(self, request, username=None):
         """

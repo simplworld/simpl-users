@@ -19,11 +19,31 @@ class UserSerializer(ModelSerializer):
             'is_superuser',
             'subscriber_code',
             'data',
+        )
+
+
+class UserUpdateSerializer(UserSerializer):
+
+    class Meta:
+        model = models.User
+        fields = (
+            'id',
+            'first_name',
+            'last_name',
+            'username',
+            'canvas_id',
+            'email',
+            'is_active',
+            'is_staff',
+            'is_superuser',
+            'subscriber_code',
+            'data',
             'password',
         )
         extra_kwargs = {
-            'pasword': {
+            'password': {
                 'write_only': True,
+                'required': False,
             }
         }
 
