@@ -1,0 +1,16 @@
+image: python:3.5
+
+services:
+  - postgres:latest
+
+variables:
+  POSTGRES_DB: simpl
+  POSTGRES_USER: runner
+  POSTGRES_PASSWORD: ""
+
+before_script:
+  - pip install -r requirements.txt
+
+test:
+  script:
+    - PYTHONPATH=. DATABASE_URL="postgres://runner@postgres/simpl" py.test
