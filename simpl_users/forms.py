@@ -8,12 +8,11 @@ class UserForm(forms.ModelForm):
     class Meta:
         model = models.User
         fields = [
-            'canvas_id',
-            'username',
+            'email',
             'first_name',
             'last_name',
             'password',
-            'email',
+            'canvas_id',
             # 'is_superuser',
             # 'is_staff',
             'is_active',

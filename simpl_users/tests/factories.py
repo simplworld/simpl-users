@@ -2,10 +2,11 @@ import factory
 
 
 class UserFactory(factory.django.DjangoModelFactory):
-    username = factory.Sequence(lambda n: 'user-{0}'.format(n))
     email = factory.Sequence(lambda n: 'user-{0}@example.com'.format(n))
+    first_name = factory.Sequence(lambda n: 'Test #{0}'.format(n))
+    last_name = 'User'
     password = factory.PostGenerationMethodCall('set_password', 'password')
 
     class Meta:
-        model = 'users.User'
-        django_get_or_create = ('username', )
+        model = 'simpl_users.User'
+        django_get_or_create = ('email', )

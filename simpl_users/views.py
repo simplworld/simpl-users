@@ -17,7 +17,7 @@ from .models import User
 class UserCreateView(SuccessMessageMixin, CreateView):
     model = User
     form_class = UserForm
-    fields = ['password', 'last_login', 'is_superuser', 'username', 'first_name', 'last_name', 'email', 'is_staff', 'is_active', 'date_joined', 'name', 'canvas_id', 'data']
+    fields = ['password', 'last_login', 'is_superuser', 'first_name', 'last_name', 'email', 'is_staff', 'is_active', 'date_joined', 'name', 'canvas_id', 'data']
     template_name = 'users/user_create.html'
     success_message = '%(name)s was created successfully'
 
@@ -39,8 +39,6 @@ class UserDeleteView(DeleteView):
 class UserDetailView(LoginRequiredMixin, DetailView):
     model = User
     # These next two lines tell the view to index lookups by username
-    slug_field = "username"
-    slug_url_kwarg = "username"
 
     # TODO: template_name = 'users/user_detail.html'
     # TODO: context_object_name = 'user'
@@ -48,9 +46,6 @@ class UserDetailView(LoginRequiredMixin, DetailView):
 
 class UserListView(LoginRequiredMixin, ListView):
     model = User
-    # These next two lines tell the view to index lookups by username
-    slug_field = "username"
-    slug_url_kwarg = "username"
 
     # TODO: template_name = 'users/user_list.html'
     # TODO: paginate_by = 20
@@ -63,7 +58,7 @@ class UserRedirectView(LoginRequiredMixin, RedirectView):
 
     def get_redirect_url(self):
         return reverse("users:detail",
-                       kwargs={"username": self.request.user.username})
+                       kwargs={"pk": self.request.user.pk})
 
 
 class UserUpdateView(LoginRequiredMixin, UpdateView):
@@ -76,13 +71,13 @@ class UserUpdateView(LoginRequiredMixin, UpdateView):
     # send the user back to their own page after a successful update
     def get_success_url(self):
         return reverse("users:detail",
-                       kwargs={"username": self.request.user.username})
+                       kwargs={"pk": self.request.user.pk})
 
         # TODO: return reverse('users:user_detail', args=(self.object.pk,))
 
     def get_object(self):
         # Only get the User record for the user making the request
-        return User.objects.get(username=self.request.user.username)
+        return User.objects.get(email=self.request.user.email)
 
 
 class ManageUserUpdateView(UpdateView):
@@ -93,4 +88,4 @@ class ManageUserUpdateView(UpdateView):
     success_message = '%(name)s was updated successfully'
 
     def get_success_url(self):
-        return reverse('users:detail', args=(self.object.username,))
+        return reverse('users:detail', args=(self.object.pk,))
