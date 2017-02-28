@@ -12,7 +12,7 @@ class UserForm(forms.ModelForm):
             'first_name',
             'last_name',
             'password',
-            'canvas_id',
+            'lms_id',
             # 'is_superuser',
             # 'is_staff',
             'is_active',

@@ -17,7 +17,7 @@ from .models import User
 class UserCreateView(SuccessMessageMixin, CreateView):
     model = User
     form_class = UserForm
-    fields = ['password', 'last_login', 'is_superuser', 'first_name', 'last_name', 'email', 'is_staff', 'is_active', 'date_joined', 'name', 'canvas_id', 'data']
+    fields = ['password', 'last_login', 'is_superuser', 'first_name', 'last_name', 'email', 'is_staff', 'is_active', 'date_joined', 'name', 'lms_id', 'data']
     template_name = 'users/user_create.html'
     success_message = '%(name)s was created successfully'
 

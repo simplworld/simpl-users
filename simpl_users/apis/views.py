@@ -20,7 +20,7 @@ class UserViewSet(CommonViewSet):
 
     queryset = models.User.objects.all()
     filter_fields = (
-        'canvas_id',
+        'lms_id',
         'is_active',
         'is_staff',
         'is_superuser',
@@ -49,11 +49,11 @@ class UserViewSet(CommonViewSet):
         Returns a list of User
         ---
         parameters:
-            - name: canvas_id
+            - name: lms_id
               type: integer
               paramType: query
               required: false
-              description: Filters User per Canvas ID via canvas_id
+              description: Filters User per LMS ID via lms_id
             - name: is_active
               type: boolean
               paramType: query

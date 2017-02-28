@@ -32,7 +32,7 @@ class BaseUser(AbstractBaseUser, PermissionsMixin):
     )
     date_joined = models.DateTimeField(_('date joined'), default=timezone.now)
 
-    canvas_id = models.IntegerField(blank=True, null=True)
+    lms_id = models.CharField(max_length=50, blank=True, null=True)
     data = JSONField(blank=True, null=True)
 
     # These are for "GIST Python Django" Compatability
