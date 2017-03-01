@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'bootstrap3',
     'base_theme',
+    'cuser',
     'simpl_users',
 )
 
