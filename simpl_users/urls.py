@@ -22,8 +22,10 @@ urlpatterns = [
     ),
 
     # URL pattern for the UserDetailView
+    # This ugly regexp is a negative match on anything that doesn't look like
+    # a URL piece.
     url(
-        regex=r'^(?P<email>[\w@.\-_\%+]+)/$',
+        regex=r'^(?P<email>[^\/\#?]+)/$',
         view=views.UserDetailView.as_view(),
         name='detail'
     ),
@@ -37,14 +39,14 @@ urlpatterns = [
 
     # URL pattern for the UserDeleteView
     url(
-        regex=r'^(?P<email>[\w@.\-_\%+]+)/delete/$',
+        regex=r'^(?P<email>[^\/\#?]+)/delete/$',
         view=views.UserDeleteView.as_view(),
         name='delete'
     ),
 
     # URL pattern for the ManageUserUpdateView
     url(
-        regex=r'^(?P<email>[\w@.\-_\%+]+)/update/$',
+        regex=r'^(?P<email>[^\/\#?]+)/update/$',
         view=views.ManageUserUpdateView.as_view(),
         name='user_update'
     ),
