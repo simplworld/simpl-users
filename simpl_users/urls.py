@@ -23,7 +23,7 @@ urlpatterns = [
 
     # URL pattern for the UserDetailView
     url(
-        regex=r'^(?P<pk>\d+)/$',
+        regex=r'^(?P<email>[\w@.\-_\%+]+)/$',
         view=views.UserDetailView.as_view(),
         name='detail'
     ),
@@ -37,14 +37,14 @@ urlpatterns = [
 
     # URL pattern for the UserDeleteView
     url(
-        regex=r'^(?P<pk>\d+)/delete/$',
+        regex=r'^(?P<email>[\w@.\-_\%+]+)/delete/$',
         view=views.UserDeleteView.as_view(),
         name='delete'
     ),
 
     # URL pattern for the ManageUserUpdateView
     url(
-        regex=r'^(?P<pk>\d+)/update/$',
+        regex=r'^(?P<email>[\w@.\-_\%+]+)/update/$',
         view=views.ManageUserUpdateView.as_view(),
         name='user_update'
     ),

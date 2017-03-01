@@ -17,4 +17,4 @@ class User(AbstractCUser):
     faculty = models.BooleanField(default=False, db_index=True)
 
     def get_absolute_url(self):
-        return reverse('users:detail', kwargs={'pk': self.pk})
+        return reverse('users:detail', kwargs={'email': self.email})

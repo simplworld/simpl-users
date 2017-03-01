@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.urlresolvers import reverse
+from django.http import Http404
 from django.views.generic import RedirectView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -22,7 +23,7 @@ class UserCreateView(SuccessMessageMixin, CreateView):
     success_message = '%(name)s was created successfully'
 
     def get_success_url(self):
-        return reverse('users:detail', args=(self.object.pk,))
+        return reverse('users:detail', args=(self.object.email,))
 
 
 class UserDeleteView(DeleteView):
@@ -38,10 +39,13 @@ class UserDeleteView(DeleteView):
 
 class UserDetailView(LoginRequiredMixin, DetailView):
     model = User
-    # These next two lines tell the view to index lookups by username
 
-    # TODO: template_name = 'users/user_detail.html'
-    # TODO: context_object_name = 'user'
+    def get_object(self, queryset=None):
+        try:
+            user = User.objects.get(email=self.kwargs.get('email'))
+            return user
+        except User.DoesNotExist:
+            raise Http404("User does not exist")
 
 
 class UserListView(LoginRequiredMixin, ListView):
@@ -58,26 +62,24 @@ class UserRedirectView(LoginRequiredMixin, RedirectView):
 
     def get_redirect_url(self):
         return reverse("users:detail",
-                       kwargs={"pk": self.request.user.pk})
+                       kwargs={"email": self.request.user.email})
 
 
 class UserUpdateView(LoginRequiredMixin, UpdateView):
 
     fields = ['name', ]
 
-    # we already imported User in the view code above, remember?
     model = User
 
     # send the user back to their own page after a successful update
     def get_success_url(self):
         return reverse("users:detail",
-                       kwargs={"pk": self.request.user.pk})
+                       kwargs={"email": self.request.user.email})
 
         # TODO: return reverse('users:user_detail', args=(self.object.pk,))
 
-    def get_object(self):
-        # Only get the User record for the user making the request
-        return User.objects.get(email=self.request.user.email)
+    def get_object(self, queryset=None):
+        return self.request.user
 
 
 class ManageUserUpdateView(UpdateView):
@@ -88,4 +90,11 @@ class ManageUserUpdateView(UpdateView):
     success_message = '%(name)s was updated successfully'
 
     def get_success_url(self):
-        return reverse('users:detail', args=(self.object.pk,))
+        return reverse('users:detail', args=(self.object.email,))
+
+    def get_object(self, queryset=None):
+        try:
+            user = User.objects.get(email=self.kwargs.get('email'))
+            return user
+        except User.DoesNotExist:
+            raise Http404("User does not exist")
