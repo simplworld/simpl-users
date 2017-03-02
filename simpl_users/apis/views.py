@@ -28,7 +28,8 @@ class UserViewSet(CommonViewSet):
         'pk',
         'subscriber_code',
     )
-    lookup_field = 'pk'
+    lookup_field = 'email'
+    lookup_value_regex = '[^\/\#?]+'
     ordering_fields = ()
 
     def get_serializer(self, *args, **kwargs):
@@ -38,11 +39,11 @@ class UserViewSet(CommonViewSet):
         else:
             return serializers.UserSerializer(*args, **kwargs)
 
-    def destroy(self, request, pk=None):
+    def destroy(self, request, email=None):
         """
         Delete an User
         """
-        return super(UserViewSet, self).destroy(request, pk=pk)
+        return super(UserViewSet, self).destroy(request, email=email)
 
     def list(self, request):
         """
@@ -74,28 +75,28 @@ class UserViewSet(CommonViewSet):
               paramType: query
               required: false
               description: Filters User per Subscriber Code via subscriber_code
-            - name: username
+            - name: email
               type: string
               paramType: query
               required: false
-              description: Filters User per Username via username
+              description: Filters User by email
         """
         return super(UserViewSet, self).list(request)
 
-    def partial_update(self, request, pk=None):
+    def partial_update(self, request, email=None):
         """
         Update an existing User
         """
-        return super(UserViewSet, self).partial_update(request, pk=pk)
+        return super(UserViewSet, self).partial_update(request, email=email)
 
-    def retrieve(self, request, pk=None):
+    def retrieve(self, request, email=None):
         """
         Find an User by username
         """
-        return super(UserViewSet, self).retrieve(request, pk=pk)
+        return super(UserViewSet, self).retrieve(request, email=email)
 
-    def update(self, request, pk=None):
+    def update(self, request, email=None):
         """
         Update an existing User
         """
-        return super(UserViewSet, self).update(request, pk=pk)
+        return super(UserViewSet, self).update(request, email=email)
