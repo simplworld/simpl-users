@@ -20,14 +20,15 @@ class UserViewSet(CommonViewSet):
 
     queryset = models.User.objects.all()
     filter_fields = (
-        'canvas_id',
+        'external_id',
         'is_active',
         'is_staff',
         'is_superuser',
-        'username',
+        'email',
+        'pk',
         'subscriber_code',
     )
-    lookup_field = 'username'
+    lookup_field = 'pk'
     ordering_fields = ()
 
     def get_serializer(self, *args, **kwargs):
@@ -37,22 +38,22 @@ class UserViewSet(CommonViewSet):
         else:
             return serializers.UserSerializer(*args, **kwargs)
 
-    def destroy(self, request, username=None):
+    def destroy(self, request, pk=None):
         """
         Delete an User
         """
-        return super(UserViewSet, self).destroy(request, username=username)
+        return super(UserViewSet, self).destroy(request, pk=pk)
 
     def list(self, request):
         """
         Returns a list of User
         ---
         parameters:
-            - name: canvas_id
+            - name: external_id
               type: integer
               paramType: query
               required: false
-              description: Filters User per Canvas ID via canvas_id
+              description: Filters User per LMS ID via external_id
             - name: is_active
               type: boolean
               paramType: query
@@ -73,28 +74,28 @@ class UserViewSet(CommonViewSet):
               paramType: query
               required: false
               description: Filters User per Subscriber Code via subscriber_code
-            - name: username
+            - name: email
               type: string
               paramType: query
               required: false
-              description: Filters User per Username via username
+              description: Filters User by email
         """
         return super(UserViewSet, self).list(request)
 
-    def partial_update(self, request, username=None):
+    def partial_update(self, request, pk=None):
         """
         Update an existing User
         """
-        return super(UserViewSet, self).partial_update(request, username=username)
+        return super(UserViewSet, self).partial_update(request, pk=pk)
 
-    def retrieve(self, request, username=None):
+    def retrieve(self, request, pk=None):
         """
         Find an User by username
         """
-        return super(UserViewSet, self).retrieve(request, username=username)
+        return super(UserViewSet, self).retrieve(request, pk=pk)
 
-    def update(self, request, username=None):
+    def update(self, request, pk=None):
         """
         Update an existing User
         """
-        return super(UserViewSet, self).update(request, username=username)
+        return super(UserViewSet, self).update(request, pk=pk)
