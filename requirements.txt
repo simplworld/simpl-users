@@ -15,6 +15,7 @@ git+https://github.com/jefftriplett/django-base-theme.git@432f87f  # Pinned to t
 git+https://github.com/dyve/django-bootstrap3.git@1ad2686  # Pin to 7.0.1 once released (currently at 6.2.2)
 
 
+bumpversion==0.5.3
 coverage==4.0.3
 django_fakery==1.4.1
 django-test-plus==1.0.12
