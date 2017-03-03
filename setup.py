@@ -11,6 +11,9 @@ setup(
     include_package_data=True,
     packages=find_packages(),
     zip_safe=False,
+    install_requires=[
+        "django-username-email==2.0.3",
+    ],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
