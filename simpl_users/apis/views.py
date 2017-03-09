@@ -25,10 +25,10 @@ class UserViewSet(CommonViewSet):
         'is_staff',
         'is_superuser',
         'email',
-        'pk',
+        'id',
         'subscriber_code',
     )
-    lookup_field = 'pk'
+    lookup_field = 'id'
     ordering_fields = ()
 
     def get_serializer(self, *args, **kwargs):
@@ -38,11 +38,11 @@ class UserViewSet(CommonViewSet):
         else:
             return serializers.UserSerializer(*args, **kwargs)
 
-    def destroy(self, request, pk=None):
+    def destroy(self, request, id=None):
         """
         Delete an User
         """
-        return super(UserViewSet, self).destroy(request, pk=pk)
+        return super(UserViewSet, self).destroy(request, id=id)
 
     def list(self, request):
         """
@@ -82,20 +82,20 @@ class UserViewSet(CommonViewSet):
         """
         return super(UserViewSet, self).list(request)
 
-    def partial_update(self, request, pk=None):
+    def partial_update(self, request, id=None):
         """
         Update an existing User
         """
-        return super(UserViewSet, self).partial_update(request, pk=pk)
+        return super(UserViewSet, self).partial_update(request, id=id)
 
-    def retrieve(self, request, pk=None):
+    def retrieve(self, request, id=None):
         """
         Find an User by username
         """
-        return super(UserViewSet, self).retrieve(request, pk=pk)
+        return super(UserViewSet, self).retrieve(request, id=id)
 
-    def update(self, request, pk=None):
+    def update(self, request, id=None):
         """
         Update an existing User
         """
-        return super(UserViewSet, self).update(request, pk=pk)
+        return super(UserViewSet, self).update(request, id=id)
