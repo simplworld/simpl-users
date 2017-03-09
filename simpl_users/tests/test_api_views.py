@@ -32,7 +32,7 @@ class UserTestCase(APITestCase, TestCase):
             self.assertNotEqual(len(response.data), 0)
 
     def test_user_delete(self):
-        url = reverse('simpl_users_api:user-detail', kwargs={'pk': self.new_user.pk})
+        url = reverse('simpl_users_api:user-detail', kwargs={'id': self.new_user.id})
 
         # Does this api work without auth?
         response = self.client.delete(url, format='json')
@@ -48,7 +48,7 @@ class UserTestCase(APITestCase, TestCase):
             self.assertEqual(response.status_code, 404)
 
     def test_user_detail(self):
-        url = reverse('simpl_users_api:user-detail', kwargs={'pk': self.user.pk})
+        url = reverse('simpl_users_api:user-detail', kwargs={'id': self.user.id})
 
         # Does this api work without auth?
         response = self.client.get(url, format='json')
@@ -75,7 +75,7 @@ class UserTestCase(APITestCase, TestCase):
 
     def test_user_update(self):
         obj = self.user
-        url = reverse('simpl_users_api:user-detail', kwargs={'pk': obj.pk})
+        url = reverse('simpl_users_api:user-detail', kwargs={'id': obj.id})
 
         old_first_name = obj.first_name
         payload = serializers.UserSerializer(obj).data
