@@ -1,6 +1,6 @@
 # Django
 django>=1.9,<1.10
-django-username-email==2.0.3
+git+https://github.com/whartonlearninglab/django-username-email@2.0
 
 # Configuration
 django-environ==0.4.0
