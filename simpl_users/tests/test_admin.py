@@ -1,7 +1,7 @@
 from test_plus.test import TestCase
 
 from .factories import UserFactory
-from ..admin import EmailUserCreationForm
+from ..forms import EmailUserCreationForm
 
 
 class TestMyUserCreationForm(TestCase):
