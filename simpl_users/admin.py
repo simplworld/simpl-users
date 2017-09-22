@@ -1,33 +1,14 @@
-# -*- coding: utf-8 -*-
-from __future__ import absolute_import, unicode_literals
-
-from django import forms
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from django.utils.translation import ugettext_lazy as _
 
 from .models import User
 
 
-class EmailUserCreationForm(UserCreationForm):
-
-    class Meta(UserCreationForm.Meta):
-        model = User
-        fields = ('email', )
-
-    def clean_email(self):
-        email = self.cleaned_data['email']
-
-        try:
-            User.objects.get(email=email)
-        except User.DoesNotExist:
-            return email
-
-        raise forms.ValidationError(_("This email address is already taken"))
-
-
-class EmailUserAdmin(UserAdmin):
+@admin.register(User)
+class UserAdmin(BaseUserAdmin):
+    add_form_template = 'admin/users/user/add_form.html'
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
         (_('Personal info'), {'fields': ('first_name', 'last_name')}),
@@ -35,9 +16,14 @@ class EmailUserAdmin(UserAdmin):
                                        'groups', 'user_permissions')}),
         (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
     )
-    add_form = EmailUserCreationForm
-    ordering = ('email', )
+    add_fieldsets = (
+        (None, {
+            'classes': ('wide',),
+            'fields': ('email', 'password1', 'password2'),
+        }),
+    )
+    form = UserChangeForm
+    add_form = UserCreationForm
     list_display = ('email', 'first_name', 'last_name', 'is_staff')
-
-
-admin.site.register(User, EmailUserAdmin)
+    search_fields = ('email', 'first_name', 'last_name')
+    ordering = ('email',)
