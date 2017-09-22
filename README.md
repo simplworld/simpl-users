@@ -2,20 +2,13 @@
 
 A reusable application to define SIMPL Users
 
-## Getting Started
-
-Make sure you are working in a virtual environment of some sort (e.g. 'virtualenv').
-
-If you are working in Vagrant you are working in Vagrant using virtualenv, add simpl-users to the code path:
+## Getting Started (assumes working in vagrant)
 
 ```bash
-$ add2virtualenv /vagrant/html/simpl-users
-```
-
-If you are working in Vagrant:
-
-```bash
-$ cd /vagrant/html/simpl-users
+$ vagrant ssh
+$ mkvirtualenv simpl-users
+$ add2virtualenv /vagrant/projects/simpl-users
+$ cd /vagrant/projects/simpl-users
 ```
 
 Install requirements:
@@ -35,7 +28,7 @@ $ cd simpl_users
 If you are working in Vagrant, this will be something like:
 
 ```bash
-$ cd /vagrant/html/simpl-users/simpl_users
+$ cd /vagrant/projects/simpl-users/simpl_users
 ```
 
 ```bash
