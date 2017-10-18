@@ -50,7 +50,7 @@ class UserViewSet(CommonViewSet):
         ---
         parameters:
             - name: external_id
-              type: integer
+              type: string
               paramType: query
               required: false
               description: Filters User per LMS ID via external_id
