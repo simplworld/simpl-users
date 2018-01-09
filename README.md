@@ -19,20 +19,8 @@ $ pip install -r requirements.txt
 
 ### Running tests with py.test
 
-Change into the `simpl_users` subdirectory:
-
 ```bash
-$ cd simpl_users
-```
-
-If you are working in Vagrant, this will be something like:
-
-```bash
-$ cd /vagrant/projects/simpl-users/simpl_users
-```
-
-```bash
-$ py.test
+$ python runtests.py
 ```
 
 ## Model Schema
