@@ -12,11 +12,3 @@ class UserFactory(factory.DjangoModelFactory):
     class Meta:
         django_get_or_create = ('username', )
         model = User
-
-
-class FacultyFactory(UserFactory):
-    faculty = True
-
-
-class StudentFactory(UserFactory):
-    student = True
