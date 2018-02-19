@@ -1,6 +1,6 @@
-# Wharton SIMPL Users Application
+# Simpl Users Application
 
-A reusable application to define SIMPL Users
+A reusable application to define Simpl Users
 
 ## Getting Started (assumes working in vagrant)
 
