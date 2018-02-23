@@ -12,8 +12,10 @@ class User(AbstractCUser):
     external_id = models.CharField(max_length=50, blank=True, null=True)
     data = JSONField(blank=True, null=True)
 
-    # These are for "GIST Python Django" Compatability
+    # for "GIST Python Django" Compatability
     subscriber_code = models.CharField('Subscriber Code', max_length=255, blank=True)
+
+    # for django-courses compatibility
     faculty = models.BooleanField(default=False, db_index=True)
 
     def get_absolute_url(self):
