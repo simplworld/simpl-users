@@ -18,7 +18,7 @@ class CommonViewSet(viewsets.ModelViewSet):
 class UserViewSet(CommonViewSet):
     """ User resource. """
 
-    queryset = models.User.objects.all()
+    queryset = models.User.objects.get_queryset().order_by('email')
     filter_fields = (
         'external_id',
         'is_active',
@@ -29,7 +29,9 @@ class UserViewSet(CommonViewSet):
         'subscriber_code',
     )
     lookup_field = 'id'
-    ordering_fields = ()
+    ordering_fields = (
+        'email',
+    )
 
     def get_serializer(self, *args, **kwargs):
         # Only allow admin users to update passwords
