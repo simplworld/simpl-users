@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='simpl-users',
-    version="0.3.6",
+    version="0.3.7",
     description='simpl-users provides Wharton SIMPL Users',
     long_description='',
     author='Jeff Triplett',
