@@ -12,7 +12,7 @@ setup(
     packages=find_packages(),
     zip_safe=False,
     install_requires=[
-        "django-username-email==2.0.3",
+        "django-username-email==2.1.3",
     ],
     classifiers=[
         'Development Status :: 4 - Beta',
