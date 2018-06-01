@@ -50,7 +50,7 @@ class UserDetailView(LoginRequiredMixin, DetailView):
 
 class UserListView(LoginRequiredMixin, ListView):
     model = User
-    ordering = ('email',)
+    ordering = ('pk',)
 
     # TODO: template_name = 'users/user_list.html'
     # TODO: paginate_by = 20
