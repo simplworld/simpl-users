@@ -7,7 +7,7 @@ setup(
     long_description='',
     author='Jeff Triplett',
     author_email='jeff@revsys.com',
-    url='https://learninglab.githost.io/lldev-team/simpl-users',
+    url='https://github.com/simplworld/simpl-users',
     include_package_data=True,
     packages=find_packages(),
     zip_safe=False,
