@@ -1,14 +1,12 @@
 # Simpl Users Application
 
-A reusable application to define Simpl Users
+A reusable application to define Simpl Users identified by email address.
 
-## Getting Started (assumes working in vagrant)
+## Getting Started
 
 ```bash
-$ vagrant ssh
 $ mkvirtualenv simpl-users
-$ add2virtualenv /vagrant/projects/simpl-users
-$ cd /vagrant/projects/simpl-users
+$ add2virtualenv .
 ```
 
 Install requirements:
@@ -23,7 +21,5 @@ $ pip install -r requirements.txt
 $ python runtests.py
 ```
 
-## Model Schema
 
-![](docs/models.png)
 

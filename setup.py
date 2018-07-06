@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
     name='simpl-users',
     version="0.3.8",
-    description='simpl-users provides Wharton SIMPL Users',
+    description='Provides Simpl Users identified by email address',
     long_description='',
     author='Jeff Triplett',
     author_email='jeff@revsys.com',
@@ -18,7 +18,7 @@ setup(
         'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: BSD License',
+        'License :: OSI Approved :: Apache Software License',
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 3',
         'Framework :: Django',
