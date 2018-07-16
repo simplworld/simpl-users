@@ -20,3 +20,11 @@ class User(AbstractCUser):
 
     def get_absolute_url(self):
         return reverse('users:detail', kwargs={'email': self.email})
+
+    def webhook_payload(self):
+        return {
+            'id': self.id,
+            'email': self.email,
+            'first_name': self.first_name,
+            'last_name': self.last_name,
+        }
