@@ -2,7 +2,7 @@
 
 A reusable application to define Simpl Users
 
-[![Build Status](https://travis-ci.com/simplworld/simpl-users.svg?token=cyqpBgqLC1o8qUptfcpE&branch=3-enable-ci)](https://travis-ci.com/simplworld/simpl-users)
+[![Build Status](https://travis-ci.com/simplworld/simpl-users.svg?token=cyqpBgqLC1o8qUptfcpE&branch=master)](https://travis-ci.com/simplworld/simpl-users)
 
 ## Getting Started (assumes working in vagrant)
 
