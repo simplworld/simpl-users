@@ -6,7 +6,7 @@ f.close()
 
 setup(
     name='simpl-users',
-    version="0.7.3",
+    version="0.7.4",
     description='simpl-users provides Simpl Users',
     long_description=readme,
     author='Jeff Triplett',
