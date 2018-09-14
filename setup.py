@@ -18,9 +18,10 @@ setup(
         'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: BSD License',
+        'License :: OSI Approved :: GNU General Public License v2 (GPLv2)',
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 3',
         'Framework :: Django',
     ],
 )
+

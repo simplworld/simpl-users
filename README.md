@@ -25,10 +25,6 @@ $ pip install -r requirements.txt
 $ python runtests.py
 ```
 
-## Model Schema
-
-![](docs/models.png)
-
 Copyright © 2018 The Wharton School,  The University of Pennsylvania 
 
 This program is free software; you can redistribute it and/or
