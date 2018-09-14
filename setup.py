@@ -1,10 +1,14 @@
 from setuptools import setup, find_packages
 
+f = open(os.path.join(os.path.dirname(__file__), 'README.md'))
+readme = f.read()
+f.close()
+
 setup(
     name='simpl-users',
     version="0.7.3",
     description='simpl-users provides Simpl Users',
-    long_description='readme',
+    long_description=readme,
     author='Jeff Triplett',
     author_email='jeff@revsys.com',
     url='https://github.com/simplworld/simpl-users',
@@ -24,4 +28,3 @@ setup(
         'Framework :: Django',
     ],
 )
-
