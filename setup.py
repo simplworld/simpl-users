@@ -3,8 +3,8 @@ from setuptools import setup, find_packages
 setup(
     name='simpl-users',
     version="0.7.2",
-    description='simpl-users provides Wharton SIMPL Users',
-    long_description='',
+    description='simpl-users provides Simpl Users',
+    long_description='readme',
     author='Jeff Triplett',
     author_email='jeff@revsys.com',
     url='https://github.com/simplworld/simpl-users',
