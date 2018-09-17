@@ -4,13 +4,20 @@ A reusable application to define Simpl Users
 
 [![Build Status](https://travis-ci.com/simplworld/simpl-users.svg?token=cyqpBgqLC1o8qUptfcpE&branch=master)](https://travis-ci.com/simplworld/simpl-users)
 
-## Getting Started (assumes working in vagrant)
+## Installation
 
 ```bash
-$ vagrant ssh
+$ pip install simpl-users
+```
+
+## Setup development environment
+
+
+```bash
+$ git clone git@github.com:simplworld/simpl-users.git
+$ cd simpl-users
 $ mkvirtualenv simpl-users
-$ add2virtualenv /vagrant/projects/simpl-users
-$ cd /vagrant/projects/simpl-users
+$ add2virtualenv .
 ```
 
 Install requirements:
