@@ -15,7 +15,7 @@ $ pip install simpl-users
 ### Django 1.11
 
 ```bash
-$ "pip install simpl-users<1.0"
+$ pip install "simpl-users<1.0"
 ```
 
 ## Setup development environment
