@@ -6,8 +6,16 @@ A reusable application to define Simpl Users
 
 ## Installation
 
+### Django 2.0, 2.1, or 2.2
+
 ```bash
 $ pip install simpl-users
+```
+
+### Django 1.11
+
+```bash
+$ "pip install simpl-users<1.0"
 ```
 
 ## Setup development environment
