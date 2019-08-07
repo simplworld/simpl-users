@@ -1,7 +1,7 @@
 # Django
 Django==2.2
 django-username-email==2.2.4
-djangorestframework==3.9.4
+djangorestframework==3.10.2
 
 # Configuration
 django-environ==0.4.4
