@@ -32,6 +32,12 @@ $ pip install -r requirements.txt
 $ python runtests.py
 ```
 
+### Building release
+
+```bash
+$ pip install -e .
+```
+
 Copyright © 2018 The Wharton School,  The University of Pennsylvania 
 
 This program is free software; you can redistribute it and/or

@@ -2,7 +2,7 @@
 from __future__ import unicode_literals, absolute_import
 
 from django.contrib.postgres.fields import JSONField
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.db import models
 
 from cuser.models import AbstractCUser
