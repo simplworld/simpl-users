@@ -1,5 +1,5 @@
 # Django
-Django==2.1
+Django==2.2
 django-username-email==2.2.4
 djangorestframework==3.9.4
 
