@@ -12,8 +12,9 @@ psycopg2==2.7.3.1
 
 # Wharton styles
 git+https://github.com/jefftriplett/django-base-theme.git@432f87f  # Pinned to the latest
-git+https://github.com/dyve/django-bootstrap3.git@1ad2686  # Pin to 7.0.1 once released (currently at 6.2.2)
+django-bootstrap3==8.2.1
 
+# Git versioning
 bumpversion==0.5.3
 
 # Testing related
