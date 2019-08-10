@@ -1,14 +1,13 @@
 # Django
 Django==2.2
 django-username-email==2.2.4
-djangorestframework==3.10.2
+djangorestframework==3.9.4
 
 # Configuration
 django-environ==0.4.4
 
 # Python-PostgreSQL Database Adapter
 psycopg2==2.7.3.1
-
 
 # Wharton styles
 git+https://github.com/jefftriplett/django-base-theme.git@432f87f  # Pinned to the latest
