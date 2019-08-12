@@ -7,7 +7,7 @@ f.close()
 
 setup(
     name='simpl-users',
-    version="0.7.6",
+    version="0.8.0",
     description='simpl-users provides Simpl Users',
     long_description=readme,
     long_description_content_type="text/markdown",
