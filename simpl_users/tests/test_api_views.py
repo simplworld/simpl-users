@@ -1,4 +1,4 @@
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django_fakery import factory
 from faker import Faker
 from rest_framework.test import APITestCase

@@ -4,7 +4,7 @@ from __future__ import absolute_import, unicode_literals
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.http import Http404
 from django.views.generic import RedirectView
 from django.views.generic.detail import DetailView
