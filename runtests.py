@@ -5,6 +5,7 @@ import sys
 os.environ['DJANGO_SETTINGS_MODULE'] = 'simpl_users.tests.test_settings'
 
 import django
+
 from django.conf import settings
 
 # Add test_plus to Python path
@@ -20,6 +21,7 @@ def runtests(*test_args):
     test_runner = runner_class(verbosity=1, interactive=True)
     failures = test_runner.run_tests(['simpl_users'])
     sys.exit(failures)
+
 
 if __name__ == '__main__':
     runtests()
