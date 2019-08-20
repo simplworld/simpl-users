@@ -17,5 +17,5 @@ class TestUser(TestCase):
     def test_get_absolute_url(self):
         self.assertEqual(
             self.user.get_absolute_url(),
-            '/users/{}/'.format(self.user.email),
+            '/apis/users/{}/'.format(self.user.pk),
         )

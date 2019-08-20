@@ -19,7 +19,7 @@ class User(AbstractCUser):
     faculty = models.BooleanField(default=False, db_index=True)
 
     def get_absolute_url(self):
-        return reverse('users:detail', kwargs={'email': self.email})
+        return reverse('simpl_users_api:user-detail', kwargs={'id': self.pk})
 
     def webhook_payload(self):
         return {

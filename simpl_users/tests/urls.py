@@ -12,9 +12,4 @@ urlpatterns = [
             (api_router.urls, 'simpl_users_api'),
             namespace='simpl_users_api',
         )),
-    url(r'^users/',
-        include(
-            ('simpl_users.urls', 'users'),
-            namespace='users'
-        )),
 ]
