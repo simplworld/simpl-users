@@ -21,9 +21,9 @@ class UserTestCase(APITestCase, TestCase):
         obj = factory.build('simpl_users.User', make_fks=True)
         payload = serializers.UserSerializer(obj).data
 
-        # Does this api work without auth?
+        # Does this api work without basic or token auth?
         response = self.client.post(url, payload, format='json')
-        self.assertEqual(response.status_code, 403)
+        self.assertEqual(response.status_code, 401)
 
         # Does this api work with auth?
         with self.login(email=self.user.email):
@@ -34,9 +34,9 @@ class UserTestCase(APITestCase, TestCase):
     def test_user_delete(self):
         url = reverse('simpl_users_api:user-detail', kwargs={'id': self.new_user.id})
 
-        # Does this api work without auth?
+        # Does this api work without basic or token auth?
         response = self.client.delete(url, format='json')
-        self.assertEqual(response.status_code, 403)
+        self.assertEqual(response.status_code, 401)
 
         # Does this api work with auth?
         with self.login(email=self.user.email):
@@ -50,9 +50,9 @@ class UserTestCase(APITestCase, TestCase):
     def test_user_detail(self):
         url = reverse('simpl_users_api:user-detail', kwargs={'id': self.user.id})
 
-        # Does this api work without auth?
+        # Does this api work without basic or token auth?
         response = self.client.get(url, format='json')
-        self.assertEqual(response.status_code, 403)
+        self.assertEqual(response.status_code, 401)
 
         # Does this api work with auth?
         with self.login(email=self.user.email):
@@ -63,9 +63,9 @@ class UserTestCase(APITestCase, TestCase):
     def test_user_list(self):
         url = reverse('simpl_users_api:user-list')
 
-        # Does this api work without auth?
+        # Does this api work without basic or token auth?
         response = self.client.get(url, format='json')
-        self.assertEqual(response.status_code, 403)
+        self.assertEqual(response.status_code, 401)
 
         # Does this api work with auth?
         with self.login(email=self.user.email):
@@ -80,9 +80,9 @@ class UserTestCase(APITestCase, TestCase):
         old_first_name = obj.first_name
         payload = serializers.UserSerializer(obj).data
 
-        # Does this api work without auth?
+        # Does this api work without basic or token auth?
         response = self.client.put(url, payload, format='json')
-        self.assertEqual(response.status_code, 403)
+        self.assertEqual(response.status_code, 401)
 
         # Does this api work with auth?
         with self.login(email=self.user.email):
