@@ -1,5 +1,9 @@
 from rest_framework import viewsets
-from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.authentication import (
+    BasicAuthentication,
+    SessionAuthentication,
+    TokenAuthentication,
+)
 from rest_framework.permissions import IsAuthenticated
 
 from . import serializers
@@ -9,7 +13,7 @@ from .. import models
 # Mixins
 
 class CommonViewSet(viewsets.ModelViewSet):
-    authentication_classes = (SessionAuthentication, BasicAuthentication)
+    authentication_classes = (BasicAuthentication, SessionAuthentication, TokenAuthentication)
     permission_classes = (IsAuthenticated,)
 
 
