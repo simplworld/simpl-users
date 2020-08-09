@@ -6,9 +6,6 @@ djangorestframework~=3.9.0
 # Configuration
 django-environ~=0.4.5
 
-# Python-PostgreSQL Database Adapter
-psycopg2==2.7.3.1
-
 # Git versioning
 bumpversion==0.5.3
 
