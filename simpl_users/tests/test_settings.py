@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'base_theme',
     'cuser',
     'simpl_users',
+    'rest_framework.authtoken',
 )
 
 AUTH_USER_MODEL = "simpl_users.User"
@@ -85,3 +86,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+}
+
