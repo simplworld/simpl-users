@@ -4,7 +4,6 @@ from .. import models
 
 
 class UserSerializer(ModelSerializer):
-
     class Meta:
         model = models.User
         fields = (
@@ -22,7 +21,6 @@ class UserSerializer(ModelSerializer):
 
 
 class UserUpdateSerializer(UserSerializer):
-    
     class Meta:
         model = models.User
         fields = (
