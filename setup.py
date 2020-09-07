@@ -10,6 +10,7 @@ setup(
     version="0.7.6",
     description='simpl-users provides Simpl Users',
     long_description=readme,
+    long_description_content_type="text/markdown",
     author='Jeff Triplett',
     author_email='jeff@revsys.com',
     url='https://github.com/simplworld/simpl-users',
